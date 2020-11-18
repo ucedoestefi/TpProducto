@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-11-2020 a las 00:04:01
+-- Tiempo de generación: 18-11-2020 a las 22:43:32
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -25,6 +25,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `marcas`
+--
+
+CREATE TABLE `marcas` (
+  `id_marca` int(50) NOT NULL,
+  `marca` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `producto`
 --
 
@@ -34,7 +45,8 @@ CREATE TABLE `producto` (
   `precio` int(255) NOT NULL,
   `marca` varchar(100) NOT NULL,
   `categoria` varchar(100) NOT NULL,
-  `subCategotia` varchar(100) NOT NULL
+  `subCategotia` varchar(100) NOT NULL,
+  `id_marca` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -78,11 +90,18 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id_user`, `nombre`, `mail`, `password`, `rol`) VALUES
 (13, 'Senua', 'senua@gmail.com', 'locura', 'Empleado'),
 (14, 'Estefania ', 'ucedoestefi@gmail.com', 'Espinosa', 'Administrador'),
-(17, 'Dillion', 'dillion@gmail.com', 'Bulldog', 'empleado');
+(17, 'Dillion', 'dillion@gmail.com', 'Bulldog', 'empleado'),
+(18, 'Juan', 'juan@gmail.com', 'Bulldog', 'empleado');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `marcas`
+--
+ALTER TABLE `marcas`
+  ADD PRIMARY KEY (`id_marca`);
 
 --
 -- Indices de la tabla `producto`
@@ -107,6 +126,12 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `marcas`
+--
+ALTER TABLE `marcas`
+  MODIFY `id_marca` int(50) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
@@ -122,7 +147,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

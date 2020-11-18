@@ -16,7 +16,7 @@ $usuarios= new usuarios();
 		header('Location: index.php');
 	// si el elemento de la vista con nombre actualizar no viene nulo, llama al crud y actualiza la tarea
 	}elseif(isset($_POST['actualizar'])){
-		$usuarios->setId($_POST['id']);
+		$usuarios->setIdUser($_POST['id_user']);
 		$usuarios->setNombre($_POST['nombre']);
 		$usuarios->setMail($_POST['mail']);
 		$usuarios->setPassword($_POST['password']);
